@@ -14,55 +14,14 @@
 
   <script type="text/javascript"> window.App = {} </script>
   
-  <script type="text/babel" src="./TodoHeader.js"></script>
-  <script type="text/babel" src="./InputField.js"></script>
-  <script type="text/babel" src="./TodoItem.js"></script>
-  <script type="text/babel" src="./TodoList.js"></script>
-  <script type="text/babel" src="./TodoApp.js"></script>
+  <script type="text/babel" src="./js/todoList/TodoHeader.js"></script>
+  <script type="text/babel" src="./js/todoList/InputField.js"></script>
+  <script type="text/babel" src="./js/todoList/TodoItem.js"></script>
+  <script type="text/babel" src="./js/todoList/TodoList.js"></script>
+  <script type="text/babel" src="./js/todoList/TodoApp.js"></script>
 
-  <script type="text/babel">
-    const { TodoApp, TodoHeader, TodoList, InputField } = window.App;
-    // var TodoApp = window.app.TodoApp;
-    const all_attrs = {
-      title: 'TodoList',
-      userName: 'gsx',
-      todoItems: [
-        {id: "1", title: 'yaya-1', completed: true},
-        {id: "2", title: 'yoyo-2', completed: false},
-        {id: "3", title: 'yoya-3', completed: false},
-        {id: "4", title: 'yayo-4', completed: true},
-        {id: "5", title: 'yayo-5', completed: true},
-        {id: "6", title: 'yayo-6', completed: true},
-        {id: "7", title: 'yayo-7', completed: true},
-        {id: "8", title: 'yayo-8', completed: false},
-        {id: "9", title: 'yayo-9', completed: true},
-      ]
-    };
-    ReactDOM.render(
-      <div>
-        <TodoApp {...all_attrs} />
-      </div>,
-      document.getElementById('hello')
-    )
-
-    // let a = {aa:1, bb:2, cc:3};
-    // console.log("=== t1 ===")
-    // let arr = [1,2,3,4]
-    // let [d, ...e] = arr
-    // console.log(d)
-    // console.log(e)
-    // console.log("=== t2 ===")
-    // // let [f1,f2,f3,f4] = ...arr
-    // // console.log(f4)
-    // console.log("=== t3 ===")
-    // let {aa, ...a1} = a
-    // console.log(aa)
-    // console.log(a1)
-    // console.log("=== t4 ===")
-    // let z = {...a}
-    // console.log({...a})
-    // console.log(z)
-    // console.log({...z})
+  <script type="text/babel" src="./js/main.js">
+    
   </script>
 
   <script type="text/babel">

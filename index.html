@@ -1,0 +1,76 @@
+<html>
+<head>
+  <title>ToDo</title>
+</head>
+<body>
+  <div id="hello"></div>
+
+  <!-- <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/16.8.6/cjs/react.development.js"></script>
+  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.8.6/cjs/react-dom.development.js"></script>
+  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script> -->
+  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react.js"></script>
+  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/15.2.1/react-dom.js"></script>
+  <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+
+  <script type="text/javascript"> window.App = {} </script>
+  
+  <script type="text/babel" src="./TodoHeader.js"></script>
+  <script type="text/babel" src="./InputField.js"></script>
+  <script type="text/babel" src="./TodoItem.js"></script>
+  <script type="text/babel" src="./TodoList.js"></script>
+  <script type="text/babel" src="./TodoApp.js"></script>
+
+  <script type="text/babel">
+    const { TodoApp, TodoHeader, TodoList, InputField } = window.App;
+    // var TodoApp = window.app.TodoApp;
+    const all_attrs = {
+      title: 'TodoList',
+      userName: 'gsx',
+      todoItems: [
+        {id: "1", title: 'yaya-1', completed: true},
+        {id: "2", title: 'yoyo-2', completed: false},
+        {id: "3", title: 'yoya-3', completed: false},
+        {id: "4", title: 'yayo-4', completed: true},
+        {id: "5", title: 'yayo-5', completed: true},
+        {id: "6", title: 'yayo-6', completed: true},
+        {id: "7", title: 'yayo-7', completed: true},
+        {id: "8", title: 'yayo-8', completed: false},
+        {id: "9", title: 'yayo-9', completed: true},
+      ]
+    };
+    ReactDOM.render(
+      <div>
+        <TodoApp {...all_attrs} />
+      </div>,
+      document.getElementById('hello')
+    )
+
+    // let a = {aa:1, bb:2, cc:3};
+    // console.log("=== t1 ===")
+    // let arr = [1,2,3,4]
+    // let [d, ...e] = arr
+    // console.log(d)
+    // console.log(e)
+    // console.log("=== t2 ===")
+    // // let [f1,f2,f3,f4] = ...arr
+    // // console.log(f4)
+    // console.log("=== t3 ===")
+    // let {aa, ...a1} = a
+    // console.log(aa)
+    // console.log(a1)
+    // console.log("=== t4 ===")
+    // let z = {...a}
+    // console.log({...a})
+    // console.log(z)
+    // console.log({...z})
+  </script>
+
+  <script type="text/babel">
+  /*
+    ReactDOM.render(
+      <h1>hihi</h1>,
+      document.getElementById('hello')
+    );
+    */
+  </script>
+</body>

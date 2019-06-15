@@ -5,9 +5,15 @@ class TodoApp extends React.Component{
     super(props, context);
 
     this.state = {
-      todoItems: this.props.todoItems
+      todoItems: []
     };
     this.updateTodoList = this.updateTodoList.bind(this)
+  }
+
+  componentDidMount() {
+    fetch('./data/todo.json')
+      .then((response) => response.json())
+      .then((todoItems) => this.setState({ todoItems }));
   }
 
   updateTodoList(updateFun) {
@@ -48,8 +54,9 @@ const _toggleTodoItem = (todos, id, completed) => {
 const _createTodoItem = (todos, title) => {
   var   completed = false
 
+  // get max id
   const lastItemIndex = todos.length - 1
-  const id        = todos[lastItemIndex].id + 1
+  const id = lastItemIndex >= 0 ? todos[lastItemIndex].id + 1 : 0
 
   todos.push({id, title, completed})
   return todos

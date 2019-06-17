@@ -1,6 +1,8 @@
+const {TodoHeaderContainer, CreateTodoFieldContainer, TodoListContainer , TodoAction} = window.App
+
 class TodoAppContainer extends React.Component {
   componentDidMount() {
-    TodoActions.loadTodos();
+    TodoAction.loadTodos();
   }
 
   render() {

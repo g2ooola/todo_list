@@ -1,7 +1,8 @@
-const {TodoStore, TodoHeader} = window.App
+const {TodoStore, TodoAction, TodoList} = window.App
 
 class TodoListContainer extends React.Component {
   constructor(props, context) {
+    super(props, context)
     this.state = {
       todoItems: TodoStore.getAll()
     };
@@ -21,9 +22,9 @@ class TodoListContainer extends React.Component {
     return (
       <TodoList
         todoItems={this.state.todoItems}
-        onUpdateTodo={TodoAction.updateTodo}
-        onToggleTodo={TodoAction.toggleTodo}
-        onDeleteTodo={TodoAction.deleteTodo}
+        editItemFun={TodoAction.updateTodo}
+        toggleItemFun={TodoAction.toggleTodo}
+        deleteItemFun={TodoAction.deleteTodo}
       />
     );
   }

@@ -25,7 +25,28 @@ window.App.TodoAction = {
         todos
       })});
   },
-  updateTodo(id, title)     { /* 略 */ },
-  toggleTodo(id, completed) { /* 略 */ },
-  deleteTodo(id)            { /* 略 */ }
+  updateTodo(id, title) {
+    const action = {
+      type: ActionType.UPDATE_TODO,
+      title: title,
+      id: id
+    }
+    AppDispatcher.dispatch(action);
+  },
+  toggleTodo(id, completed) {
+    console.log("action toggle")
+    const action = {
+      type: ActionType.TOGGLE_TODO,
+      id: id,
+      completed: completed
+    }
+    AppDispatcher.dispatch(action);
+  },
+  deleteTodo(id) {
+    const action = {
+      type: ActionType.DELETE_TODO,
+      id: id
+    }
+    AppDispatcher.dispatch(action);
+  }
 };

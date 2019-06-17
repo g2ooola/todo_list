@@ -1,7 +1,8 @@
 const {TodoStore, TodoHeader} = window.App
 
-class TodoHeaderContainer extends Component {
+class TodoHeaderContainer extends React.Component {
   constructor(props, context) { 
+    super(props, context)
     this.state = {
       todoItems: TodoStore.getAll()
     };

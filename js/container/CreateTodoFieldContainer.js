@@ -1,11 +1,11 @@
-const {TodoAction} = window.App
+const {TodoAction, InputField} = window.App
 
-class CreateTodoFieldContainer extends Component {
+class CreateTodoFieldContainer extends React.Component {
   render() {
     return (
       <InputField
         placeholder="新增待辦清單"
-        onSubmitEditing={TodoAction.createTodo} // 1. 調用 TodoActions
+        submitFun={TodoAction.createTodo}
       />
     );
   }

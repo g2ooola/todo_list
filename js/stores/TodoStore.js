@@ -60,18 +60,28 @@ window.App.TodoStore = {
   //    註：register() 會回傳 token，可以用在當 Store 有依賴關係，必須調整 dispatch 順序時。
   //    例：Dispatcher.waitFor([ token1, token2 ])
   dispatchToken: AppDispatcher.register((action) => {
+    console.log(action.type)
     switch (action.type) {
       case ActionType.LOAD_TODOS_SUCCESS:
         _todos = action.todos;
         _emitter.emit(CHANGE_EVENT); // 5. 當資料改變，必須觸發事件
         break;
       case ActionType.CREATE_TODO:
-        _todos = _createTodo(_todos, action.title);
+        _todos = _createTodoItem(_todos, action.title);
         _emitter.emit(CHANGE_EVENT);
         break;
-      case ActionType.UPDATE_TODO: /* 略 */
-      case ActionType.TOGGLE_TODO: /* 略 */
-      case ActionType.DELETE_TODO: /* 略 */
+      case ActionType.UPDATE_TODO:
+        _todos = _editTodoItem(_todos, action.id, action.title);
+        _emitter.emit(CHANGE_EVENT)
+        break;
+      case ActionType.TOGGLE_TODO:
+        _todos = _toggleTodoItem(_todos, action.id, action.completed);
+        _emitter.emit(CHANGE_EVENT)
+        break;
+      case ActionType.DELETE_TODO:
+        _todos = _removeTodoItem(_todos, action.id);
+        _emitter.emit(CHANGE_EVENT)
+        break;
     }
   })
 };

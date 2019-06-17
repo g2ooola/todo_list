@@ -1,21 +1,14 @@
 const {TodoStore, TodoHeader} = window.App
 
 class TodoHeaderContainer extends React.Component {
-  constructor(props, context) { 
-    super(props, context)
-    this.state = {
-      todoItems: TodoStore.getAll()
+  static getStores() {
+    return [ TodoStore ]; // all stores needs to listen
+  }
+
+  static calculateState(prevState) {
+    return {
+      todoItems: TodoStore.getState(), // 2. sync data from store
     };
-  }
-
-  componentDidMount() {
-    this._removeChangeListener = TodoStore.addChangeListener(
-      () => this.setState({ todoItems: TodoStore.getAll() })
-    );
-  }
-
-  componentWillUnmount() {
-    this._removeChangeListener();
   }
 
   render() {
@@ -29,4 +22,5 @@ class TodoHeaderContainer extends React.Component {
   }
 }
 
-window.App.TodoHeaderContainer = TodoHeaderContainer;
+// 3. create truogh FluxUtils.Container.create
+window.App.TodoHeaderContainer = FluxUtils.Container.create(TodoHeaderContainer);

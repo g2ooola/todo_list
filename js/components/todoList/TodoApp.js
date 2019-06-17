@@ -1,11 +1,17 @@
-const { TodoHeader, InputField, TodoList } = window.App;
+const {
+  TodoHeader,
+  InputField,
+  TodoList,
+  TodoAction,
+  TodoStore
+} = window.App;
 
 class TodoApp extends React.Component{
   constructor(props, context) {
     super(props, context);
 
     this.state = {
-      todoItems: []
+      todoItems: this.props.todoItems
     };
     this.updateTodoList = this.updateTodoList.bind(this)
   }
@@ -15,6 +21,11 @@ class TodoApp extends React.Component{
       .then((response) => response.json())
       .then((todoItems) => this.setState({ todoItems }));
   }
+
+  // componentWillUnmount() {
+  //   // 6. 向 TodoStore 註銷監聽器
+  //   this._removeChangeListener();
+  // }
 
   updateTodoList(updateFun) {
     return (...args) => {

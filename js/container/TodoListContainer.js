@@ -1,26 +1,30 @@
-const {TodoStore, TodoAction, TodoList} = window.App
+const {TodoAction, TodoList} = window.App
+const {connect} = ReactRedux
 
 class TodoListContainer extends React.Component {
-  static getStores() {
-    return [ TodoStore ];
-  }
-
-  static calculateState(prevState) {
-    return {
-      todoItems: TodoStore.getState(),
-    };
-  }
-
   render() {
+    const {
+      todoItems,
+      updateTodo,
+      toggleTodo,
+      deleteTodo
+    } = this.props
     return (
       <TodoList
-        todoItems={this.state.todoItems}
-        editItemFun={TodoAction.updateTodo}
-        toggleItemFun={TodoAction.toggleTodo}
-        deleteItemFun={TodoAction.deleteTodo}
+        todoItems={todoItems}
+        editItemFun={updateTodo}
+        toggleItemFun={toggleTodo}
+        deleteItemFun={deleteTodo}
       />
     );
   }
 }
 
-window.App.TodoListContainer = FluxUtils.Container.create(TodoListContainer);
+window.App.TodoListContainer = connect(
+  (state) => ({todoItems: state.todos}),
+  {
+    updateTodo: TodoAction.updateTodo,
+    toggleTodo: TodoAction.toggleTodo,
+    deleteTodo: TodoAction.deleteTodo
+  }
+)(TodoListContainer);

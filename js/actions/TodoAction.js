@@ -1,52 +1,48 @@
 const {
-  ActionType,
-  AppDispatcher
+  ActionType
 } = window.App;
 
 window.App.TodoAction = {
   createTodo(title) {
-    // 1. 一個 Action Creator 函數做兩件事
-    AppDispatcher.dispatch({         // a. 定義 action 物件，也就是 { type: ..., title: ... }
-      type: ActionType.CREATE_TODO, // b. 將 action 物件傳遞給 Dispatcher，這裡用 .dispatch() 將 action 丟給 Dispacther
+    // 2. 與 Flux 的 Action Creator 不同的是直接回傳 action 物件，不會將它遞給 Dispatcher
+    return {
+      type: ActionType.CREATE_TODO,
       title
-    });
+    };
   },
   loadTodos() {
-    // 2. 在非同步的狀態中，可以等待有 response 時，在丟 action 物件
-    //
-    //    註：同一個函數中，可以丟好幾個 action 物件，
-    //    例如請求前丟一個，因為我們要將資料狀態改為 loading；
-    //    請求成功或失敗，各丟不同的 action！
-    console.log("--loadTodos")
-    fetch('./data/todo.json')
-      .then((response) => {console.log('ya'); return response.json()})
-      .then((todos) => {console.log(todos); return AppDispatcher.dispatch({
-        type: ActionType.LOAD_TODOS_SUCCESS,
-        todos
-      })});
+    // 3. 當我們遇到非同步的行為時，因為無法立即回傳 action 物件，我們可以回傳其他形式的 action，
+    //    如這裡是回傳 thunk 函數，thunk 是將表達式封裝起來為了延遲調用的函數；
+    //    Redux 提供一種方法叫 applyMiddleware，讓你的 Store 接收到這類型的 action 可以做額外的處理，
+    //    如這裡是當 Store 接到 thunk 時才調用，並把 dispatch 函數遞進去。
+    //    PS. 我們將會在下一章介紹如何使用 middleware 處理這類型的 action。
+    return (dispatch) => {
+      fetch('./data/todo.json')
+        .then((response) => response.json())
+        .then((todos) => dispatch({
+          type: ActionType.LOAD_TODOS_SUCCESS,
+          todos
+        }));
+    };
   },
-  updateTodo(id, title) {
-    const action = {
+  updateTodo(id, title)     {
+    return {
       type: ActionType.UPDATE_TODO,
-      title: title,
-      id: id
+      title,
+      id
     }
-    AppDispatcher.dispatch(action);
   },
   toggleTodo(id, completed) {
-    console.log("action toggle")
-    const action = {
+    return {
       type: ActionType.TOGGLE_TODO,
-      id: id,
-      completed: completed
+      id,
+      completed
     }
-    AppDispatcher.dispatch(action);
   },
-  deleteTodo(id) {
-    const action = {
+  deleteTodo(id)            {
+    return {
       type: ActionType.DELETE_TODO,
-      id: id
+      id
     }
-    AppDispatcher.dispatch(action);
   }
 };

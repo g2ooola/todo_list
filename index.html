@@ -3,7 +3,7 @@
   <title>ToDo</title>
 </head>
 <body>
-  <div id="hello"></div>
+  <div id="app"></div>
 
   <!-- <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/16.8.6/cjs/react.development.js"></script>
   <script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.8.6/cjs/react-dom.development.js"></script>
@@ -19,11 +19,15 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flux/2.1.1/Flux.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/EventEmitter/5.0.0/EventEmitter.js"></script>
   <script src="https://cdn.rawgit.com/facebook/flux/master/dist/FluxUtils.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.4.0/redux.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-redux/4.4.5/react-redux.js"></script>
 
-  <script type="text/babel" src="./js/dispatcher/AppDispatcher.js"></script>
+
   <script type="text/babel" src="./js/constants/ActionType.js"></script>
   <script type="text/babel" src="./js/actions/TodoAction.js"></script>
-  <script type="text/babel" src="./js/stores/TodoStore.js"></script>
+
+    <script type="text/babel" src="./js/reducers/index.js"></script>
+  <script type="text/babel" src="./js/reducers/todos.js"></script>
   
 
   <script type="text/babel" src="./js/components/todoList/TodoHeader.js"></script>

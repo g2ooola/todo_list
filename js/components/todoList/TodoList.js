@@ -8,7 +8,7 @@ class TodoList extends React.Component {
         deleteItemFun={ deleteItemFun }
         toggleItemFun={ toggleItemFun }
         editItemFun = { editItemFun }
-        {...todo_item}
+        {...todo_item.toJS()}
       />
     );
 

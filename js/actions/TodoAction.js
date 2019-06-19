@@ -19,10 +19,11 @@ window.App.TodoAction = {
     return (dispatch) => {
       fetch('./data/todo.json')
         .then((response) => response.json())
-        .then((todos) => dispatch({
-          type: ActionType.LOAD_TODOS_SUCCESS,
-          todos
-        }));
+        .then((todos) => {
+          return dispatch({
+            type: ActionType.LOAD_TODOS_SUCCESS,
+            todos
+        })});
     };
   },
   updateTodo(id, title)     {

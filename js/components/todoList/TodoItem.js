@@ -75,7 +75,7 @@ TodoItem.propTypes = {
 };
 
 TodoItem.defaultProps = {
-  title: '我的待辦清單',
+  title: 'my todo list',
   completed: false
 };
 

@@ -47,8 +47,8 @@ class InputField extends React.Component {
 InputField.propTypes = {
   defaultValue:   React.PropTypes.string,
   placeholder:    React.PropTypes.string,
-  submitFun: React.PropTypes.func,
-  cancleFun:    React.PropTypes.func
+  submitFun:      React.PropTypes.func,
+  cancleFun:      React.PropTypes.func
 };
 
 InputField.defaultProps = {

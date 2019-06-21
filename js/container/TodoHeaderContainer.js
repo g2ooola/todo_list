@@ -5,8 +5,8 @@ class TodoHeaderContainer extends React.Component {
   render() {
     return (
       <TodoHeader
-        title="我的待辦清單"
-        userName="Jason"
+        title="This is my todo list."
+        userName="GSX"
         todoNum={this.props.todoItems.filter((todo) => !todo.get('completed')).size}
       />
     );

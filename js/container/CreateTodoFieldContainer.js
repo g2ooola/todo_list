@@ -5,7 +5,7 @@ class CreateTodoFieldContainer extends React.Component {
   render() {
     return (
       <InputField
-        placeholder="新增待辦清單"
+        placeholder="new todos"
         submitFun={this.props.createTodo}
       />
     );

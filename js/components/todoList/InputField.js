@@ -28,7 +28,7 @@ class InputField extends React.Component {
 
   render () {
     const {
-      defaultValue, placeholder, submitFun, cancleFun, ...others
+      defaultValue, placeholder, ...others
     } = this.props
 
     return <div>
@@ -47,8 +47,8 @@ class InputField extends React.Component {
 InputField.propTypes = {
   defaultValue:   React.PropTypes.string,
   placeholder:    React.PropTypes.string,
-  submitFun: React.PropTypes.func,
-  cancleFun:    React.PropTypes.func
+  submitFun:      React.PropTypes.func,
+  cancleFun:      React.PropTypes.func
 };
 
 InputField.defaultProps = {

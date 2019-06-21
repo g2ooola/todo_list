@@ -3,7 +3,7 @@ class TodoHeader extends React.Component {
     const {userName, todoNum, title} = this.props;
     return <div>
       <div>{title}</div>
-      <div>Hi, <span>{userName}</span>, there is {todoNum} things you have to do. </div>
+      <div>Hi, <span>{userName}</span>, there are {todoNum} thing(s) you have to do. </div>
     </div>;
   }
 }

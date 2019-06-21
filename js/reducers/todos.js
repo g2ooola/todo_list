@@ -11,8 +11,8 @@ const _findIdxById = (todos, id) => {
 }
 
 const _getNewId = (todos) => {
-  const lastItemIndex = todos.length - 1
-  const newId = lastItemIndex >= 0 ? todos[lastItemIndex].id + 1 : 0
+  const lastItemIndex = todos.size - 1
+  const newId = lastItemIndex >= 0 ? todos.get(lastItemIndex).get('id') + 1 : 0
   return newId
 }
 
